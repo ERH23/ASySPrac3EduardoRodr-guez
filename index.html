@@ -1,0 +1,644 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      -->
+<title>Practica3_exported</title>
+<meta name="generator" content="MATLAB 23.2">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.date" content="2024-03-18">
+<meta name="DC.source" content="Practica3_exported.m">
+<style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style>
+</head>
+<body>
+<div class="content">
+<pre class="codeinput">
+<span class="keyword">classdef</span> Practica3_exported &lt; matlab.apps.AppBase
+
+    <span class="comment">% Properties that correspond to app components</span>
+    <span class="keyword">properties</span> (Access = public)
+        UIFigure                       <span class="typesection">matlab.ui.Figure</span>
+        GridLayout                     <span class="typesection">matlab.ui.container.GridLayout</span>
+        LeftPanel                      <span class="typesection">matlab.ui.container.Panel</span>
+        MostrarButton                  <span class="typesection">matlab.ui.control.Button</span>
+        FactordetransformacionhorizontalEditField  <span class="typesection">matlab.ui.control.NumericEditField</span>
+        FactordetransformacionhorizontalEditFieldLabel  <span class="typesection">matlab.ui.control.Label</span>
+        FactordetransformacionverticalEditField  <span class="typesection">matlab.ui.control.NumericEditField</span>
+        FactordetransformacionverticalEditFieldLabel  <span class="typesection">matlab.ui.control.Label</span>
+        TransformacinHorizontalButton  <span class="typesection">matlab.ui.control.Button</span>
+        TransformacinVerticalButton    <span class="typesection">matlab.ui.control.Button</span>
+        LmiteinferiorEditField         <span class="typesection">matlab.ui.control.EditField</span>
+        LmiteinferiorEditFieldLabel    <span class="typesection">matlab.ui.control.Label</span>
+        LmitesuperiorEditField         <span class="typesection">matlab.ui.control.EditField</span>
+        LmitesuperiorEditFieldLabel    <span class="typesection">matlab.ui.control.Label</span>
+        FuncionEditField               <span class="typesection">matlab.ui.control.EditField</span>
+        FuncionEditFieldLabel          <span class="typesection">matlab.ui.control.Label</span>
+        RightPanel                     <span class="typesection">matlab.ui.container.Panel</span>
+        UIAxes3                        <span class="typesection">matlab.ui.control.UIAxes</span>
+        UIAxes2                        <span class="typesection">matlab.ui.control.UIAxes</span>
+        UIAxes                         <span class="typesection">matlab.ui.control.UIAxes</span>
+    <span class="keyword">end</span>
+
+    <span class="comment">% Properties that correspond to apps with auto-reflow</span>
+    <span class="keyword">properties</span> (Access = private)
+        onePanelWidth = 576;
+    <span class="keyword">end</span>
+
+    <span class="comment">% Callbacks that handle component events</span>
+    <span class="keyword">methods</span> (Access = private)
+
+        <span class="comment">% Value changing function: FuncionEditField</span>
+        <span class="keyword">function</span> FuncionEditFieldValueChanging(app, event)
+
+
+        <span class="keyword">end</span>
+
+        <span class="comment">% Value changed function: LmitesuperiorEditField</span>
+        <span class="keyword">function</span> LmitesuperiorEditFieldValueChanged(app, event)
+
+        <span class="keyword">end</span>
+
+        <span class="comment">% Value changed function: LmiteinferiorEditField</span>
+        <span class="keyword">function</span> LmiteinferiorEditFieldValueChanged(app, event)
+
+        <span class="keyword">end</span>
+
+        <span class="comment">% Callback function: not associated with a component</span>
+        <span class="keyword">function</span> UIAxesButtonDown(app, event)
+
+        <span class="keyword">end</span>
+
+        <span class="comment">% Button pushed function: TransformacinVerticalButton</span>
+        <span class="keyword">function</span> TransformacinVerticalButtonPushed(app, event)
+            funcStr = app.FuncionEditField.Value;
+            liminf = str2double(app.LmiteinferiorEditField.Value);
+            limsup = str2double(app.LmitesuperiorEditField.Value);
+            factvert = str2double(app.FactordetransformacionverticalEditField);
+            func = str2func([<span class="string">'@(x)'</span>, funcStr]);
+            x = linspace(liminf,limsup,1000);
+            y = func(x)*factvert;
+            plot(app.UIAxes2,x,y);
+
+        <span class="keyword">end</span>
+
+        <span class="comment">% Button pushed function: MostrarButton</span>
+        <span class="keyword">function</span> MostrarButtonPushed(app, event)
+            funcStr = app.FuncionEditField.Value;
+            Liminf = str2double(app.LmiteinferiorEditField.Value);
+            Limsup = str2double(app.LmitesuperiorEditField.Value);
+            func = str2func([<span class="string">'@(x)'</span>, funcStr]);
+            x = linspace(Liminf,Limsup,1000);
+            y = func(x);
+            plot(app.UIAxes,x,y);
+        <span class="keyword">end</span>
+
+        <span class="comment">% Button down function: UIAxes</span>
+        <span class="keyword">function</span> UIAxesButtonDown2(app, event)
+
+        <span class="keyword">end</span>
+
+        <span class="comment">% Button pushed function: TransformacinHorizontalButton</span>
+        <span class="keyword">function</span> TransformacinHorizontalButtonPushed(app, event)
+            Funcion = app.FuncionEditField.Value;
+            Liminf = str2double(app.LmiteinferiorEditField.Value);
+            Limsup = str2double(app.LmitesuperiorEditField.Value);
+            Factor = str2double(app.FactordetransformacionhorizontalEditField.Value);
+
+            func = str2func([<span class="string">'@(x)'</span> Funcion]);
+            x = linspace(Liminf,Limsup,1000);
+            y = func(x / Factor);
+            plot(app.UIAxes3,x,y);
+
+        <span class="keyword">end</span>
+
+        <span class="comment">% Changes arrangement of the app based on UIFigure width</span>
+        <span class="keyword">function</span> updateAppLayout(app, event)
+            currentFigureWidth = app.UIFigure.Position(3);
+            <span class="keyword">if</span>(currentFigureWidth &lt;= app.onePanelWidth)
+                <span class="comment">% Change to a 2x1 grid</span>
+                app.GridLayout.RowHeight = {583, 583};
+                app.GridLayout.ColumnWidth = {<span class="string">'1x'</span>};
+                app.RightPanel.Layout.Row = 2;
+                app.RightPanel.Layout.Column = 1;
+            <span class="keyword">else</span>
+                <span class="comment">% Change to a 1x2 grid</span>
+                app.GridLayout.RowHeight = {<span class="string">'1x'</span>};
+                app.GridLayout.ColumnWidth = {265, <span class="string">'1x'</span>};
+                app.RightPanel.Layout.Row = 1;
+                app.RightPanel.Layout.Column = 2;
+            <span class="keyword">end</span>
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+
+    <span class="comment">% Component initialization</span>
+    <span class="keyword">methods</span> (Access = private)
+
+        <span class="comment">% Create UIFigure and components</span>
+        <span class="keyword">function</span> createComponents(app)
+
+            <span class="comment">% Create UIFigure and hide until all components are created</span>
+            app.UIFigure = uifigure(<span class="string">'Visible'</span>, <span class="string">'off'</span>);
+            app.UIFigure.AutoResizeChildren = <span class="string">'off'</span>;
+            app.UIFigure.Position = [100 100 716 583];
+            app.UIFigure.Name = <span class="string">'MATLAB App'</span>;
+            app.UIFigure.SizeChangedFcn = createCallbackFcn(app, @updateAppLayout, true);
+
+            <span class="comment">% Create GridLayout</span>
+            app.GridLayout = uigridlayout(app.UIFigure);
+            app.GridLayout.ColumnWidth = {265, <span class="string">'1x'</span>};
+            app.GridLayout.RowHeight = {<span class="string">'1x'</span>};
+            app.GridLayout.ColumnSpacing = 0;
+            app.GridLayout.RowSpacing = 0;
+            app.GridLayout.Padding = [0 0 0 0];
+            app.GridLayout.Scrollable = <span class="string">'on'</span>;
+
+            <span class="comment">% Create LeftPanel</span>
+            app.LeftPanel = uipanel(app.GridLayout);
+            app.LeftPanel.Layout.Row = 1;
+            app.LeftPanel.Layout.Column = 1;
+
+            <span class="comment">% Create FuncionEditFieldLabel</span>
+            app.FuncionEditFieldLabel = uilabel(app.LeftPanel);
+            app.FuncionEditFieldLabel.HorizontalAlignment = <span class="string">'right'</span>;
+            app.FuncionEditFieldLabel.Position = [50 466 49 22];
+            app.FuncionEditFieldLabel.Text = <span class="string">'Funcion'</span>;
+
+            <span class="comment">% Create FuncionEditField</span>
+            app.FuncionEditField = uieditfield(app.LeftPanel, <span class="string">'text'</span>);
+            app.FuncionEditField.ValueChangedFcn = createCallbackFcn(app, @updateAppLayout, true);
+            app.FuncionEditField.ValueChangingFcn = createCallbackFcn(app, @FuncionEditFieldValueChanging, true);
+            app.FuncionEditField.Position = [114 466 143 22];
+
+            <span class="comment">% Create LmitesuperiorEditFieldLabel</span>
+            app.LmitesuperiorEditFieldLabel = uilabel(app.LeftPanel);
+            app.LmitesuperiorEditFieldLabel.HorizontalAlignment = <span class="string">'right'</span>;
+            app.LmitesuperiorEditFieldLabel.Position = [49 430 88 22];
+            app.LmitesuperiorEditFieldLabel.Text = <span class="string">'L&iacute;mite superior'</span>;
+
+            <span class="comment">% Create LmitesuperiorEditField</span>
+            app.LmitesuperiorEditField = uieditfield(app.LeftPanel, <span class="string">'text'</span>);
+            app.LmitesuperiorEditField.ValueChangedFcn = createCallbackFcn(app, @LmitesuperiorEditFieldValueChanged, true);
+            app.LmitesuperiorEditField.Position = [152 430 100 22];
+
+            <span class="comment">% Create LmiteinferiorEditFieldLabel</span>
+            app.LmiteinferiorEditFieldLabel = uilabel(app.LeftPanel);
+            app.LmiteinferiorEditFieldLabel.HorizontalAlignment = <span class="string">'right'</span>;
+            app.LmiteinferiorEditFieldLabel.Position = [55 394 80 22];
+            app.LmiteinferiorEditFieldLabel.Text = <span class="string">'L&iacute;mite inferior'</span>;
+
+            <span class="comment">% Create LmiteinferiorEditField</span>
+            app.LmiteinferiorEditField = uieditfield(app.LeftPanel, <span class="string">'text'</span>);
+            app.LmiteinferiorEditField.ValueChangedFcn = createCallbackFcn(app, @LmiteinferiorEditFieldValueChanged, true);
+            app.LmiteinferiorEditField.Position = [150 394 100 22];
+
+            <span class="comment">% Create TransformacinVerticalButton</span>
+            app.TransformacinVerticalButton = uibutton(app.LeftPanel, <span class="string">'push'</span>);
+            app.TransformacinVerticalButton.ButtonPushedFcn = createCallbackFcn(app, @TransformacinVerticalButtonPushed, true);
+            app.TransformacinVerticalButton.Position = [90 147 144 23];
+            app.TransformacinVerticalButton.Text = <span class="string">'Transformaci&oacute;n Vertical'</span>;
+
+            <span class="comment">% Create TransformacinHorizontalButton</span>
+            app.TransformacinHorizontalButton = uibutton(app.LeftPanel, <span class="string">'push'</span>);
+            app.TransformacinHorizontalButton.ButtonPushedFcn = createCallbackFcn(app, @TransformacinHorizontalButtonPushed, true);
+            app.TransformacinHorizontalButton.Position = [82 116 160 23];
+            app.TransformacinHorizontalButton.Text = <span class="string">'Transformaci&oacute;n Horizontal'</span>;
+
+            <span class="comment">% Create FactordetransformacionverticalEditFieldLabel</span>
+            app.FactordetransformacionverticalEditFieldLabel = uilabel(app.LeftPanel);
+            app.FactordetransformacionverticalEditFieldLabel.HorizontalAlignment = <span class="string">'right'</span>;
+            app.FactordetransformacionverticalEditFieldLabel.Position = [64 284 183 32];
+            app.FactordetransformacionverticalEditFieldLabel.Text = <span class="string">'Factor de transformacion vertical '</span>;
+
+            <span class="comment">% Create FactordetransformacionverticalEditField</span>
+            app.FactordetransformacionverticalEditField = uieditfield(app.LeftPanel, <span class="string">'numeric'</span>);
+            app.FactordetransformacionverticalEditField.Position = [112 263 100 22];
+
+            <span class="comment">% Create FactordetransformacionhorizontalEditFieldLabel</span>
+            app.FactordetransformacionhorizontalEditFieldLabel = uilabel(app.LeftPanel);
+            app.FactordetransformacionhorizontalEditFieldLabel.HorizontalAlignment = <span class="string">'right'</span>;
+            app.FactordetransformacionhorizontalEditFieldLabel.Position = [55 216 202 48];
+            app.FactordetransformacionhorizontalEditFieldLabel.Text = <span class="string">'Factor de transformacion  horizontal'</span>;
+
+            <span class="comment">% Create FactordetransformacionhorizontalEditField</span>
+            app.FactordetransformacionhorizontalEditField = uieditfield(app.LeftPanel, <span class="string">'numeric'</span>);
+            app.FactordetransformacionhorizontalEditField.Position = [112 195 100 22];
+
+            <span class="comment">% Create MostrarButton</span>
+            app.MostrarButton = uibutton(app.LeftPanel, <span class="string">'push'</span>);
+            app.MostrarButton.ButtonPushedFcn = createCallbackFcn(app, @MostrarButtonPushed, true);
+            app.MostrarButton.Position = [112 337 100 23];
+            app.MostrarButton.Text = <span class="string">'Mostrar'</span>;
+
+            <span class="comment">% Create RightPanel</span>
+            app.RightPanel = uipanel(app.GridLayout);
+            app.RightPanel.Layout.Row = 1;
+            app.RightPanel.Layout.Column = 2;
+
+            <span class="comment">% Create UIAxes</span>
+            app.UIAxes = uiaxes(app.RightPanel);
+            title(app.UIAxes, <span class="string">'Se&ntilde;al original'</span>)
+            xlabel(app.UIAxes, <span class="string">'X'</span>)
+            ylabel(app.UIAxes, <span class="string">'Y'</span>)
+            zlabel(app.UIAxes, <span class="string">'Z'</span>)
+            app.UIAxes.ButtonDownFcn = createCallbackFcn(app, @UIAxesButtonDown2, true);
+            app.UIAxes.Position = [77 391 300 185];
+
+            <span class="comment">% Create UIAxes2</span>
+            app.UIAxes2 = uiaxes(app.RightPanel);
+            title(app.UIAxes2, <span class="string">'Transformacion vertical'</span>)
+            xlabel(app.UIAxes2, <span class="string">'X'</span>)
+            ylabel(app.UIAxes2, <span class="string">'Y'</span>)
+            zlabel(app.UIAxes2, <span class="string">'Z'</span>)
+            app.UIAxes2.Position = [76 197 300 185];
+
+            <span class="comment">% Create UIAxes3</span>
+            app.UIAxes3 = uiaxes(app.RightPanel);
+            title(app.UIAxes3, <span class="string">'Transformacion horizontal'</span>)
+            xlabel(app.UIAxes3, <span class="string">'X'</span>)
+            ylabel(app.UIAxes3, <span class="string">'Y'</span>)
+            zlabel(app.UIAxes3, <span class="string">'Z'</span>)
+            app.UIAxes3.Position = [76 11 300 185];
+
+            <span class="comment">% Show the figure after all components are created</span>
+            app.UIFigure.Visible = <span class="string">'on'</span>;
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+
+    <span class="comment">% App creation and deletion</span>
+    <span class="keyword">methods</span> (Access = public)
+
+        <span class="comment">% Construct app</span>
+        <span class="keyword">function</span> app = Practica3_exported
+
+            <span class="comment">% Create UIFigure and components</span>
+            createComponents(app)
+
+            <span class="comment">% Register the app with App Designer</span>
+            registerApp(app, app.UIFigure)
+
+            <span class="keyword">if</span> nargout == 0
+                clear <span class="string">app</span>
+            <span class="keyword">end</span>
+        <span class="keyword">end</span>
+
+        <span class="comment">% Code that executes before app deletion</span>
+        <span class="keyword">function</span> delete(app)
+
+            <span class="comment">% Delete UIFigure when app is deleted</span>
+            delete(app.UIFigure)
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+</pre>
+<p class="footer">
+<br>
+<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2023b</a>
+<br>
+</p>
+</div>
+<!--
+##### SOURCE BEGIN #####
+classdef Practica3_exported < matlab.apps.AppBase
+
+    % Properties that correspond to app components
+    properties (Access = public)
+        UIFigure                       matlab.ui.Figure
+        GridLayout                     matlab.ui.container.GridLayout
+        LeftPanel                      matlab.ui.container.Panel
+        MostrarButton                  matlab.ui.control.Button
+        FactordetransformacionhorizontalEditField  matlab.ui.control.NumericEditField
+        FactordetransformacionhorizontalEditFieldLabel  matlab.ui.control.Label
+        FactordetransformacionverticalEditField  matlab.ui.control.NumericEditField
+        FactordetransformacionverticalEditFieldLabel  matlab.ui.control.Label
+        TransformacinHorizontalButton  matlab.ui.control.Button
+        TransformacinVerticalButton    matlab.ui.control.Button
+        LmiteinferiorEditField         matlab.ui.control.EditField
+        LmiteinferiorEditFieldLabel    matlab.ui.control.Label
+        LmitesuperiorEditField         matlab.ui.control.EditField
+        LmitesuperiorEditFieldLabel    matlab.ui.control.Label
+        FuncionEditField               matlab.ui.control.EditField
+        FuncionEditFieldLabel          matlab.ui.control.Label
+        RightPanel                     matlab.ui.container.Panel
+        UIAxes3                        matlab.ui.control.UIAxes
+        UIAxes2                        matlab.ui.control.UIAxes
+        UIAxes                         matlab.ui.control.UIAxes
+    end
+
+    % Properties that correspond to apps with auto-reflow
+    properties (Access = private)
+        onePanelWidth = 576;
+    end
+
+    % Callbacks that handle component events
+    methods (Access = private)
+
+        % Value changing function: FuncionEditField
+        function FuncionEditFieldValueChanging(app, event)
+
+         
+        end
+
+        % Value changed function: LmitesuperiorEditField
+        function LmitesuperiorEditFieldValueChanged(app, event)
+           
+        end
+
+        % Value changed function: LmiteinferiorEditField
+        function LmiteinferiorEditFieldValueChanged(app, event)
+    
+        end
+
+        % Callback function: not associated with a component
+        function UIAxesButtonDown(app, event)
+      
+        end
+
+        % Button pushed function: TransformacinVerticalButton
+        function TransformacinVerticalButtonPushed(app, event)
+            funcStr = app.FuncionEditField.Value;
+            liminf = str2double(app.LmiteinferiorEditField.Value);
+            limsup = str2double(app.LmitesuperiorEditField.Value);
+            factvert = str2double(app.FactordetransformacionverticalEditField);
+            func = str2func(['@(x)', funcStr]);
+            x = linspace(liminf,limsup,1000);
+            y = func(x)*factvert;
+            plot(app.UIAxes2,x,y);
+            
+        end
+
+        % Button pushed function: MostrarButton
+        function MostrarButtonPushed(app, event)
+            funcStr = app.FuncionEditField.Value;
+            Liminf = str2double(app.LmiteinferiorEditField.Value);
+            Limsup = str2double(app.LmitesuperiorEditField.Value);
+            func = str2func(['@(x)', funcStr]);
+            x = linspace(Liminf,Limsup,1000);
+            y = func(x);
+            plot(app.UIAxes,x,y);
+        end
+
+        % Button down function: UIAxes
+        function UIAxesButtonDown2(app, event)
+            
+        end
+
+        % Button pushed function: TransformacinHorizontalButton
+        function TransformacinHorizontalButtonPushed(app, event)
+            Funcion = app.FuncionEditField.Value;
+            Liminf = str2double(app.LmiteinferiorEditField.Value);
+            Limsup = str2double(app.LmitesuperiorEditField.Value);
+            Factor = str2double(app.FactordetransformacionhorizontalEditField.Value);
+
+            func = str2func(['@(x)' Funcion]);
+            x = linspace(Liminf,Limsup,1000);
+            y = func(x / Factor);
+            plot(app.UIAxes3,x,y);
+
+        end
+
+        % Changes arrangement of the app based on UIFigure width
+        function updateAppLayout(app, event)
+            currentFigureWidth = app.UIFigure.Position(3);
+            if(currentFigureWidth <= app.onePanelWidth)
+                % Change to a 2x1 grid
+                app.GridLayout.RowHeight = {583, 583};
+                app.GridLayout.ColumnWidth = {'1x'};
+                app.RightPanel.Layout.Row = 2;
+                app.RightPanel.Layout.Column = 1;
+            else
+                % Change to a 1x2 grid
+                app.GridLayout.RowHeight = {'1x'};
+                app.GridLayout.ColumnWidth = {265, '1x'};
+                app.RightPanel.Layout.Row = 1;
+                app.RightPanel.Layout.Column = 2;
+            end
+        end
+    end
+
+    % Component initialization
+    methods (Access = private)
+
+        % Create UIFigure and components
+        function createComponents(app)
+
+            % Create UIFigure and hide until all components are created
+            app.UIFigure = uifigure('Visible', 'off');
+            app.UIFigure.AutoResizeChildren = 'off';
+            app.UIFigure.Position = [100 100 716 583];
+            app.UIFigure.Name = 'MATLAB App';
+            app.UIFigure.SizeChangedFcn = createCallbackFcn(app, @updateAppLayout, true);
+
+            % Create GridLayout
+            app.GridLayout = uigridlayout(app.UIFigure);
+            app.GridLayout.ColumnWidth = {265, '1x'};
+            app.GridLayout.RowHeight = {'1x'};
+            app.GridLayout.ColumnSpacing = 0;
+            app.GridLayout.RowSpacing = 0;
+            app.GridLayout.Padding = [0 0 0 0];
+            app.GridLayout.Scrollable = 'on';
+
+            % Create LeftPanel
+            app.LeftPanel = uipanel(app.GridLayout);
+            app.LeftPanel.Layout.Row = 1;
+            app.LeftPanel.Layout.Column = 1;
+
+            % Create FuncionEditFieldLabel
+            app.FuncionEditFieldLabel = uilabel(app.LeftPanel);
+            app.FuncionEditFieldLabel.HorizontalAlignment = 'right';
+            app.FuncionEditFieldLabel.Position = [50 466 49 22];
+            app.FuncionEditFieldLabel.Text = 'Funcion';
+
+            % Create FuncionEditField
+            app.FuncionEditField = uieditfield(app.LeftPanel, 'text');
+            app.FuncionEditField.ValueChangedFcn = createCallbackFcn(app, @updateAppLayout, true);
+            app.FuncionEditField.ValueChangingFcn = createCallbackFcn(app, @FuncionEditFieldValueChanging, true);
+            app.FuncionEditField.Position = [114 466 143 22];
+
+            % Create LmitesuperiorEditFieldLabel
+            app.LmitesuperiorEditFieldLabel = uilabel(app.LeftPanel);
+            app.LmitesuperiorEditFieldLabel.HorizontalAlignment = 'right';
+            app.LmitesuperiorEditFieldLabel.Position = [49 430 88 22];
+            app.LmitesuperiorEditFieldLabel.Text = 'Límite superior';
+
+            % Create LmitesuperiorEditField
+            app.LmitesuperiorEditField = uieditfield(app.LeftPanel, 'text');
+            app.LmitesuperiorEditField.ValueChangedFcn = createCallbackFcn(app, @LmitesuperiorEditFieldValueChanged, true);
+            app.LmitesuperiorEditField.Position = [152 430 100 22];
+
+            % Create LmiteinferiorEditFieldLabel
+            app.LmiteinferiorEditFieldLabel = uilabel(app.LeftPanel);
+            app.LmiteinferiorEditFieldLabel.HorizontalAlignment = 'right';
+            app.LmiteinferiorEditFieldLabel.Position = [55 394 80 22];
+            app.LmiteinferiorEditFieldLabel.Text = 'Límite inferior';
+
+            % Create LmiteinferiorEditField
+            app.LmiteinferiorEditField = uieditfield(app.LeftPanel, 'text');
+            app.LmiteinferiorEditField.ValueChangedFcn = createCallbackFcn(app, @LmiteinferiorEditFieldValueChanged, true);
+            app.LmiteinferiorEditField.Position = [150 394 100 22];
+
+            % Create TransformacinVerticalButton
+            app.TransformacinVerticalButton = uibutton(app.LeftPanel, 'push');
+            app.TransformacinVerticalButton.ButtonPushedFcn = createCallbackFcn(app, @TransformacinVerticalButtonPushed, true);
+            app.TransformacinVerticalButton.Position = [90 147 144 23];
+            app.TransformacinVerticalButton.Text = 'Transformación Vertical';
+
+            % Create TransformacinHorizontalButton
+            app.TransformacinHorizontalButton = uibutton(app.LeftPanel, 'push');
+            app.TransformacinHorizontalButton.ButtonPushedFcn = createCallbackFcn(app, @TransformacinHorizontalButtonPushed, true);
+            app.TransformacinHorizontalButton.Position = [82 116 160 23];
+            app.TransformacinHorizontalButton.Text = 'Transformación Horizontal';
+
+            % Create FactordetransformacionverticalEditFieldLabel
+            app.FactordetransformacionverticalEditFieldLabel = uilabel(app.LeftPanel);
+            app.FactordetransformacionverticalEditFieldLabel.HorizontalAlignment = 'right';
+            app.FactordetransformacionverticalEditFieldLabel.Position = [64 284 183 32];
+            app.FactordetransformacionverticalEditFieldLabel.Text = 'Factor de transformacion vertical ';
+
+            % Create FactordetransformacionverticalEditField
+            app.FactordetransformacionverticalEditField = uieditfield(app.LeftPanel, 'numeric');
+            app.FactordetransformacionverticalEditField.Position = [112 263 100 22];
+
+            % Create FactordetransformacionhorizontalEditFieldLabel
+            app.FactordetransformacionhorizontalEditFieldLabel = uilabel(app.LeftPanel);
+            app.FactordetransformacionhorizontalEditFieldLabel.HorizontalAlignment = 'right';
+            app.FactordetransformacionhorizontalEditFieldLabel.Position = [55 216 202 48];
+            app.FactordetransformacionhorizontalEditFieldLabel.Text = 'Factor de transformacion  horizontal';
+
+            % Create FactordetransformacionhorizontalEditField
+            app.FactordetransformacionhorizontalEditField = uieditfield(app.LeftPanel, 'numeric');
+            app.FactordetransformacionhorizontalEditField.Position = [112 195 100 22];
+
+            % Create MostrarButton
+            app.MostrarButton = uibutton(app.LeftPanel, 'push');
+            app.MostrarButton.ButtonPushedFcn = createCallbackFcn(app, @MostrarButtonPushed, true);
+            app.MostrarButton.Position = [112 337 100 23];
+            app.MostrarButton.Text = 'Mostrar';
+
+            % Create RightPanel
+            app.RightPanel = uipanel(app.GridLayout);
+            app.RightPanel.Layout.Row = 1;
+            app.RightPanel.Layout.Column = 2;
+
+            % Create UIAxes
+            app.UIAxes = uiaxes(app.RightPanel);
+            title(app.UIAxes, 'Señal original')
+            xlabel(app.UIAxes, 'X')
+            ylabel(app.UIAxes, 'Y')
+            zlabel(app.UIAxes, 'Z')
+            app.UIAxes.ButtonDownFcn = createCallbackFcn(app, @UIAxesButtonDown2, true);
+            app.UIAxes.Position = [77 391 300 185];
+
+            % Create UIAxes2
+            app.UIAxes2 = uiaxes(app.RightPanel);
+            title(app.UIAxes2, 'Transformacion vertical')
+            xlabel(app.UIAxes2, 'X')
+            ylabel(app.UIAxes2, 'Y')
+            zlabel(app.UIAxes2, 'Z')
+            app.UIAxes2.Position = [76 197 300 185];
+
+            % Create UIAxes3
+            app.UIAxes3 = uiaxes(app.RightPanel);
+            title(app.UIAxes3, 'Transformacion horizontal')
+            xlabel(app.UIAxes3, 'X')
+            ylabel(app.UIAxes3, 'Y')
+            zlabel(app.UIAxes3, 'Z')
+            app.UIAxes3.Position = [76 11 300 185];
+
+            % Show the figure after all components are created
+            app.UIFigure.Visible = 'on';
+        end
+    end
+
+    % App creation and deletion
+    methods (Access = public)
+
+        % Construct app
+        function app = Practica3_exported
+
+            % Create UIFigure and components
+            createComponents(app)
+
+            % Register the app with App Designer
+            registerApp(app, app.UIFigure)
+
+            if nargout == 0
+                clear app
+            end
+        end
+
+        % Code that executes before app deletion
+        function delete(app)
+
+            % Delete UIFigure when app is deleted
+            delete(app.UIFigure)
+        end
+    end
+end
+##### SOURCE END #####
+-->
+</body>
+</html>
